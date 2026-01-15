@@ -1,0 +1,497 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './mobile.css';
+
+:root {
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #818cf8;
+  --ifm-color-primary-lighter: #a5b4fc;
+  --ifm-color-primary-lightest: #c7d2fe;
+
+  --ifm-background-color: #ffffff;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Typography Improvements */
+  --ifm-h1-font-size: 3rem;
+  --ifm-h2-font-size: 2.25rem;
+  --ifm-h3-font-size: 1.75rem;
+  --ifm-leading: 1.8;
+  --ifm-paragraph-margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+
+  --ifm-background-color: #0f172a;
+  /* Deep Slate */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4f46e5, #8b5cf6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400;
+}
+
+/* Markdown Content Improvements */
+.markdown {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-2;
+}
+
+/* Headings */
+.markdown h1 {
+  @apply text-3xl sm:text-4xl lg:text-5xl mt-8 sm:mt-12 mb-6 sm:mb-10 leading-tight;
+}
+
+.markdown h2 {
+  @apply text-2xl sm:text-3xl lg:text-4xl mt-10 sm:mt-16 mb-6 sm:mb-8 border-b border-gray-200 dark:border-gray-800 pb-3 sm:pb-4;
+}
+
+.markdown h3 {
+  @apply text-xl sm:text-2xl lg:text-3xl mt-8 sm:mt-10 mb-4 sm:mb-6;
+}
+
+.markdown h4 {
+  @apply text-lg sm:text-xl lg:text-2xl mt-6 sm:mt-8 mb-3 sm:mb-4;
+}
+
+.markdown h5 {
+  @apply text-base sm:text-lg lg:text-xl mt-5 sm:mt-6 mb-2 sm:mb-3;
+}
+
+.markdown h6 {
+  @apply text-sm sm:text-base lg:text-lg mt-5 sm:mt-6 mb-2 sm:mb-3 uppercase tracking-wide text-gray-500;
+}
+
+/* Text */
+.markdown p {
+  @apply mb-6 sm:mb-8 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-7 sm:leading-8;
+}
+
+/* Lists */
+.markdown ul {
+  @apply mb-6 sm:mb-8 pl-5 sm:pl-6 list-disc marker:text-primary;
+}
+
+.markdown ol {
+  @apply mb-6 sm:mb-8 pl-5 sm:pl-6 list-decimal marker:text-primary marker:font-bold;
+}
+
+.markdown li {
+  @apply mb-2 sm:mb-3 text-base sm:text-lg text-gray-700 dark:text-gray-300 pl-1 sm:pl-2 leading-relaxed;
+}
+
+.markdown li>ul,
+.markdown li>ol {
+  @apply mt-3 mb-0;
+}
+
+/* Code Blocks */
+.markdown pre {
+  @apply my-6 sm:my-10 rounded-xl sm:rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700/50 bg-gray-50 dark:bg-[#1e293b] overflow-x-auto;
+}
+
+/* Inline Code */
+.markdown code {
+  @apply bg-gray-100 dark:bg-gray-800 text-primary px-1.5 py-0.5 rounded text-[0.9em] border border-gray-200 dark:border-gray-700;
+  vertical-align: middle;
+}
+
+/* Blockquotes */
+.markdown blockquote {
+  @apply my-6 sm:my-10 pl-4 sm:pl-6 py-3 sm:py-4 border-l-4 border-primary bg-blue-50/50 dark:bg-blue-900/10 rounded-r-xl italic text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+/* Dividers */
+.markdown hr {
+  @apply my-20 border-t border-gray-200 dark:border-gray-800;
+}
+
+/* Tables */
+.markdown table {
+  @apply my-6 sm:my-10 w-full border-collapse rounded-xl overflow-hidden shadow-sm text-sm sm:text-base;
+}
+
+.markdown th,
+.markdown td {
+  @apply p-2 sm:p-4 border-b border-gray-200 dark:border-gray-800;
+}
+
+.markdown th {
+  @apply bg-gray-50 dark:bg-gray-800 font-bold text-left text-gray-900 dark:text-white;
+}
+
+/* Table Wrapper for Horizontal Scroll */
+.markdown > table {
+  @apply block overflow-x-auto;
+}
+
+/* Images */
+.markdown img {
+  @apply my-6 sm:my-10 rounded-xl sm:rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.01] max-w-full h-auto;
+}
+
+/* Links */
+.markdown a {
+  @apply text-primary underline decoration-primary/30 hover:decoration-primary transition-all font-medium;
+}
+
+/* Mermaid Styling */
+.docusaurus-mermaid-container {
+  @apply flex justify-center my-12;
+}
+
+.docusaurus-mermaid-container svg {
+  @apply max-w-full h-auto rounded-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black p-8 border border-gray-200 dark:border-gray-800 shadow-2xl;
+  font-family: var(--ifm-font-family-base) !important;
+}
+
+/* Button Overrides */
+.button--primary {
+  @apply bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 border-none text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-0.5;
+}
+
+.button--secondary {
+  @apply bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 font-bold py-3 px-6 rounded-xl transition-all shadow-sm;
+}
+
+/* Navbar Glassmorphism */
+.navbar {
+  @apply backdrop-blur-md bg-white/80 dark:bg-[#0f172a]/80 border-b border-slate-200/50 dark:border-slate-700/50 sticky top-0 transition-all duration-300;
+  z-index: var(--ifm-z-index-fixed) !important;
+}
+
+.navbar__title {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text font-extrabold text-2xl tracking-tight;
+  --tw-gradient-to: #ec4899 var(--tw-gradient-to-position) !important;
+}
+
+/* Sidebar Styling - "The Max" */
+.theme-doc-sidebar-menu {
+  @apply px-4 py-6 font-medium tracking-wide;
+}
+
+/* Mobile Sidebar Fix */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: calc(var(--ifm-z-index-fixed) + 1) !important;
+    background: var(--ifm-background-color) !important;
+    overflow-y: auto !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .theme-doc-sidebar-container[data-hidden="false"] {
+    transform: translateX(0) !important;
+  }
+
+  .navbar-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: calc(var(--ifm-z-index-fixed) + 1) !important;
+    background: var(--ifm-background-color) !important;
+  }
+
+  .navbar-sidebar__backdrop {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: var(--ifm-z-index-fixed) !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+.menu__link {
+  @apply rounded-lg px-4 py-3 transition-all duration-300 border border-transparent mx-1 relative overflow-hidden text-gray-600 dark:text-gray-400;
+}
+
+.menu__link:hover {
+  @apply bg-gray-100 dark:bg-white/5 text-primary translate-x-1;
+}
+
+.menu__link--active {
+  @apply bg-gradient-to-r from-indigo-500/10 to-violet-500/10 text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 rounded-r-xl rounded-l-none font-bold shadow-sm;
+}
+
+/* Nested Items */
+.menu__list .menu__list {
+  @apply mt-2 mb-2 ml-5 border-l border-dashed border-gray-300 dark:border-gray-700 pl-3 space-y-1;
+}
+
+.menu__list .menu__list .menu__link {
+  @apply text-sm py-2;
+}
+
+.menu__list .menu__list .menu__link--active {
+  @apply text-blue-600 dark:text-blue-400 bg-transparent border-none pl-2 font-semibold;
+}
+
+.menu__list .menu__list .menu__link--active::before {
+  content: '•';
+  @apply absolute left-[-18px] text-indigo-500 text-lg top-1/2 -translate-y-1/2;
+}
+
+
+/* Global Animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utilities */
+.glass-panel {
+  @apply bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl;
+}
+
+/* Footer Styling */
+.footer {
+  @apply border-t border-white/10 bg-[#0a101e] mt-0 py-12 text-center;
+}
+
+.footer__copyright {
+  @apply text-gray-500 dark:text-gray-400 font-medium text-sm tracking-wide;
+}
+
+/* Glow Effects */
+.glow-button {
+  @apply relative overflow-hidden;
+}
+
+.glow-button::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite];
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Footer Icons Alignment */
+.footer__links {
+  @apply flex justify-center gap-4 sm:gap-8 mb-0 !important;
+}
+
+.footer__col {
+  @apply flex-none !important;
+}
+
+.footer__item {
+  @apply inline-block mx-2 sm:mx-4 !important;
+}
+
+.footer__title {
+  @apply hidden;
+  /* Hide the "Connect" title for a cleaner look */
+}
+
+/* ============================================
+   MOBILE RESPONSIVE FIXES
+   ============================================ */
+
+/* Ensure proper mobile viewport */
+@media (max-width: 996px) {
+  /* Fix content padding on mobile */
+  .main-wrapper {
+    @apply px-0;
+  }
+
+  /* Ensure doc content is readable on mobile */
+  .theme-doc-markdown {
+    @apply px-4;
+  }
+
+  /* Fix navbar items on mobile */
+  .navbar__items {
+    @apply gap-2;
+  }
+
+  .navbar__item {
+    @apply text-sm;
+  }
+
+  /* Improve button sizing on mobile */
+  .button {
+    @apply text-sm px-4 py-2;
+  }
+
+  /* Fix sidebar menu spacing */
+  .theme-doc-sidebar-menu {
+    @apply px-3 py-4;
+  }
+
+  .menu__link {
+    @apply px-3 py-2 text-sm;
+  }
+
+  /* Ensure mermaid diagrams are responsive */
+  .docusaurus-mermaid-container svg {
+    @apply p-4;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Fix code block overflow */
+  .markdown pre code {
+    @apply text-xs;
+  }
+
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+    @apply inline-flex items-center justify-center;
+  }
+
+  /* Fix navbar title on small screens */
+  .navbar__title {
+    @apply text-base sm:text-xl;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+  .markdown h1 {
+    @apply text-2xl;
+  }
+
+  .markdown h2 {
+    @apply text-xl;
+  }
+
+  .markdown h3 {
+    @apply text-lg;
+  }
+
+  /* Reduce padding on very small screens */
+  .theme-doc-markdown {
+    @apply px-3;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Enable GPU acceleration for animations */
+.animate-fade-in,
+.menu__link,
+.button,
+.navbar {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize images */
+img {
+  @apply max-w-full h-auto;
+  content-visibility: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Prevent layout shift */
+.navbar,
+.theme-doc-sidebar-container {
+  contain: layout style;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Focus visible styles */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  @apply absolute -top-full left-0 bg-primary text-white px-4 py-2 z-[9999] transition-all;
+}
+
+.skip-to-content:focus {
+  @apply top-0;
+}
