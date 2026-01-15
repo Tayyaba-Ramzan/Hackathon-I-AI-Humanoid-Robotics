@@ -166,8 +166,7 @@ function HomepageHeader() {
             <FeatureCard
               icon="🧠"
               title="Adaptive Intelligence"
-              description="A context-aware AI tutor guiding and accelerating your robotics learning — anytime, anywhere — with seamless support in both English and Urdu, ensuring comfort, clarity, and technical precision while learning complex robotics concepts."
-            />
+              description="A context-aware AI tutor intelligently guiding and accelerating your robotics learning — anytime, anywhere efficiently." />
           </FadeIn>
 
           <FadeIn delay={200}>
