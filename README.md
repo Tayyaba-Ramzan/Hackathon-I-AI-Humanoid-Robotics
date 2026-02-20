@@ -61,8 +61,7 @@ This project utilizes **SpecKit Plus** for a structured, AI-assisted development
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/tayyaba-ramzan/Physical-AI-Humanoid-Robotics-.git
-cd Physical-AI-Humanoid-Robotics-
+git clone https://github.com/tayyaba-ramzan/Physical-AI-Humanoid-Robotics.git
 ```
 
 ### 2. Get Free API Keys
